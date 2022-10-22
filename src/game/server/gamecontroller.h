@@ -20,14 +20,13 @@ typedef unsigned __int64 uint64_t;
 		Controls the main game logic. Keeping track of team and player score,
 		winning conditions and specific game logic.
 */
-class IGameController
+class CGameController
 {
 	array<vec2> m_aaSpawnPoints[3];
 
 	class CGameContext *m_pGameServer;
 	class IServer *m_pServer;
 
-protected:
 	CGameContext *GameServer() const { return m_pGameServer; }
 	IServer *Server() const { return m_pServer; }
 
@@ -76,8 +75,8 @@ public:
 	bool IsTeamplay() const;
 	bool IsGameOver() const { return m_GameOverTick != -1; }
 
-	IGameController(class CGameContext *pGameServer);
-	virtual ~IGameController();
+	CGameController(class CGameContext *pGameServer);
+	virtual ~CGameController();
 
 	virtual void DoWincheck();
 
